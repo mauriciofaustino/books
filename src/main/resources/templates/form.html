@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org" lang="pt-BR">
+<head th:include="include/layout :: htmlhead"><title>Books</title></head>
+<body>
+<nav th:replace="include/layout :: navbar"></nav>
+
+<main>
+    <div class="container py-4">
+        <h1>Adicionar novo livro</h1>
+        <div th:if="${message}" th:text="${message}" class="alert alert-primary alert-dismissible fade show mt-3">
+        </div>
+        <form method="post" action="#" th:action="@{/create}" th:object="${book}">
+            <div class="mb-3">
+                <label for="book" class="form-label">Nome</label>
+                <input type="text" th:field="${book.name}" id="book">
+            </div>
+            <div class="mb-3">
+                <label for="description" class="form-label">Descri&ccedil;&atilde;o</label>
+                <input type="text" th:field="${book.description}" id="description">
+            </div>
+            <div class="mb-3">
+                <button type="submit" class="btn btn-primary">Registrar</button>
+            </div>
+        </form>
+    </div>
+</main>
+</body>
+</html>
